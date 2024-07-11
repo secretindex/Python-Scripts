@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Recad Auto-message</title>
+    <script defer src="js/index.js"></script>
+  </head>
+  <body>
+    <main class="main">
+      <section class="program">
+        <section class="checkboxes">
+          <header class="checkboxes__header">
+            <h2>Checkboxes</h2>
+          </header>
+          <div class="boxes">
+            <form class="form-box">
+              <div class="bx">
+                <div class="check">
+                  <input type="checkbox" id="foto" name="foto" value="foto" />
+                  <label for="foto">Foto + ID</label>
+                </div>
+                <div class="check">
+                  <input type="checkbox" id="id" name="id" value="id" />
+                  <label for="id">Identidade</label>
+                </div>
+                <div class="check">
+                  <input type="checkbox" id="pis" name="pis" value="pis" />
+                  <label for="pis">PIS/PASEP ou NIT</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="residencia"
+                    name="residencia"
+                    value="residencia"
+                  />
+                  <label for="residencia">C. Residência</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="casamento"
+                    name="casamento"
+                    value="casamento"
+                  />
+                  <label for="casamento">D. União/Casamento</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="nascimento"
+                    name="nascimento"
+                    value="nascimento"
+                  />
+                  <label for="nascimento">C. Nascimento</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="contracheque"
+                    name="contracheque"
+                    value="contracheque"
+                  />
+                  <label for="contracheque">Contracheque</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="posse"
+                    name="posse"
+                    value="posse"
+                  />
+                  <label for="posse">Termo de Posse</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="veracidade"
+                    name="veracidade"
+                    value="veracidade"
+                  />
+                  <label for="veracidade">Termo de Veracidade</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="certidoes"
+                    name="certidoes"
+                    value="certidoes"
+                  />
+                  <label for="certidoes">Certidão Nasc/Cas/União</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="estadoc"
+                    name="estadoc"
+                    value="estadoc"
+                  />
+                  <label for="estadoc">Declaração de Estado Civil</label>
+                </div>
+                <div class="check">
+                  <input
+                    type="checkbox"
+                    id="depid"
+                    name="depid"
+                    value="depid"
+                  />
+                  <label for="depid">Dependente ID</label>
+                </div>
+              </div>
+              <div>
+                <input
+                  type="submit"
+                  value="Generate Text"
+                  class="submit def-btn"
+                />
+              </div>
+            </form>
+          </div>
+        </section>
+        <section class="text-generator">
+          <div class="text">
+            <textarea
+              name="generated-text"
+              id="gen-text"
+              placeholder="Result text"
+              class="text-gen"
+              rows="10"
+              cols="10"
+            ></textarea>
+          </div>
+        </section>
+      </section>
+
+      <div class="reset">
+        <button class="reset-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            enable-background="new 0 0 24 24"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#fefefe"
+          >
+            <g><path d="M0,0h24v24H0V0z" fill="none" /></g>
+            <g>
+              <g>
+                <path
+                  d="M6,13c0-1.65,0.67-3.15,1.76-4.24L6.34,7.34C4.9,8.79,4,10.79,4,13c0,4.08,3.05,7.44,7,7.93v-2.02 C8.17,18.43,6,15.97,6,13z M20,13c0-4.42-3.58-8-8-8c-0.06,0-0.12,0.01-0.18,0.01l1.09-1.09L11.5,2.5L8,6l3.5,3.5l1.41-1.41 l-1.08-1.08C11.89,7.01,11.95,7,12,7c3.31,0,6,2.69,6,6c0,2.97-2.17,5.43-5,5.91v2.02C16.95,20.44,20,17.08,20,13z"
+                />
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </main>
+  </body>
+</html>

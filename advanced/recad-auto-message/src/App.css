@@ -1,0 +1,52 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.checkbox-container {
+  width: 45%;
+  height: 100%;
+}
+
+.text-gen {
+  width: 45%;
+  height: 100%;
+}
+
+.text-result {
+  height: 100%;
+  width: 100%;
+  
+}
+
+.bottom-right .IconButton:hover {
+  background-color: #416d8e;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

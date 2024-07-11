@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+  background-color: rgb(23, 23, 23);
+  color: rgb(237, 237, 237);
+}
+
+main {
+  height: 100vh;
+}
+
+.program {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.checkboxes {
+  border: 1px solid #fdfdfd20;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  min-width: 45%;
+  min-height: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 2px 3px 5px #b3b3b310;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reset {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.reset-btn {
+  border-radius: 500px;
+  background-color: #3d24ca;
+  color: white;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.def-btn {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  background-color: #3d24ca;
+  color: #f1f1f1;
+  transition: all 200ms ease-in-out;
+}
+
+.text-generator {
+  width: 45%;
+  height: 45%;
+}
+
+.text {
+  height: 100%;
+}
+
+.text-gen {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  resize: none;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form > .bx {
+  font-size: 0.9rem;
+}
+
+.def-btn:hover {
+  background-color: #543dd8;
+}
+
+label {
+  color: #b3b1b1;
+}
