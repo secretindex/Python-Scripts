@@ -1,5 +1,5 @@
-import { TextareaAutosize } from "@mui/material";
-import CheckboxLabels from "../components/Clickbox";
+import { Box, TextField, Typography } from "@mui/material"
+import CheckboxLabels from "../components/Clickbox"
 
 function Home() {
   return (
@@ -7,12 +7,37 @@ function Home() {
       <div className="checkbox-container">
         <CheckboxLabels />
       </div>
-      <div className="text-gen">
-        <TextareaAutosize className="text-result" />
-      </div>
+      <Box
+        sx={{
+          width: "100%",
+          height: "100%", // You can change this to any specific height
+          display: "flex",
+          flexDirection: "column",
+          gap: "6px",
+          justifyContent: "center",
+          padding: 2,
+        }}
+      >
+        <Typography textAlign={"left"}>
+          Result
+        </Typography>
+        <TextField
+          variant="outlined"
+          multiline
+          minRows={20}
+          maxRows={30}
+          fullWidth
+          sx={{
+            height: "100%",
+            "& .MuiInputBase-root": {
+              height: "100%",
+              alignItems: "start",
+            },
+          }}
+        />
+      </Box>
     </section>
-  );
+  )
 }
 
-export default Home;
-
+export default Home
