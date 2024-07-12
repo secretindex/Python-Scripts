@@ -1,6 +1,8 @@
 import { Box, TextField, Typography } from "@mui/material"
 import CheckboxLabels from "../components/Clickbox"
 
+// TODO: Implement useContext to send generated message from checkbox component to text result component
+
 function Home() {
   return (
     <section className="app-container">
