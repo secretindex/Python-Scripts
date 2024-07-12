@@ -1,11 +1,58 @@
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import FormGroup from "@mui/material/FormGroup"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import Checkbox from "@mui/material/Checkbox"
+import { BaseSyntheticEvent, useState } from "react"
+import { Box, Button, Typography } from "@mui/material"
+import TemporaryDrawer from "./Sidebar"
+
+interface RequiredDocs {
+  foto: boolean
+  id: boolean
+  pis: boolean
+  residencia: boolean
+  uniao: boolean
+  casamento: boolean
+  nascimento: boolean
+  contracheque: boolean
+  posse: boolean
+  veracidade: boolean
+  estadoc: boolean
+  depid: boolean
+  decres: boolean
+}
 
 export default function CheckboxLabels() {
-  const [_checkboxes, _setCheckboxes] = useState<Array<string>>([]);
+  const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
+  const [docs, setDocs] = useState<RequiredDocs>({
+    foto: false,
+    id: false,
+    pis: false,
+    residencia: false,
+    uniao: false,
+    casamento: false,
+    nascimento: false,
+    contracheque: false,
+    posse: false,
+    veracidade: false,
+    estadoc: false,
+    depid: false,
+    decres: false
+  })
+
+  const handleChange = (e: BaseSyntheticEvent) => {
+    console.log(e.target);
+    const name: string | any = e.target.name;
+
+    setDocs({
+      ...docs,
+      [name]: docs[name] === true ? false : true
+    });
+  }
+
+  const submitCheckboxes = (e: BaseSyntheticEvent) => {
+    console.log(e.target)
+    console.log(docs)
+  }
 
   return (
     <div>
@@ -15,28 +62,37 @@ export default function CheckboxLabels() {
         </Typography>
       </Box>
       <FormGroup>
-        <FormControlLabel control={<Checkbox />} label="Foto + ID" />
-        <FormControlLabel control={<Checkbox />} label="Identidade" />
-        <FormControlLabel control={<Checkbox />} label="PIS/PASEP ou NIT" />
-        <FormControlLabel control={<Checkbox />} label="C. Residência" />
-        <FormControlLabel control={<Checkbox />} label="D. União estável" />
+        <FormControlLabel control={<Checkbox checked={docs.foto} onChange={handleChange} name="foto" />} label="Foto + ID" />
+        <FormControlLabel control={<Checkbox checked={docs.id} onChange={handleChange} name="id" />} label="Identidade" />
+        <FormControlLabel control={<Checkbox checked={docs.pis} onChange={handleChange} name="pis" />} label="PIS/PASEP ou NIT" />
+        <FormControlLabel control={<Checkbox checked={docs.residencia} onChange={handleChange} name="residencia" />} label="C. Residência" />
+        <FormControlLabel control={<Checkbox checked={docs.uniao} onChange={handleChange} name="uniao" />} label="D. União estável" />
         <FormControlLabel
-          control={<Checkbox />}
+          control={<Checkbox checked={docs.casamento} onChange={handleChange} name="casamento" />}
           label="Certidão de Casamento"
         />
-        <FormControlLabel control={<Checkbox />} label="Contracheque" />
-        <FormControlLabel control={<Checkbox />} label="Termo de Posse" />
-        <FormControlLabel control={<Checkbox />} label="Termo de Veracidade" />
+        <FormControlLabel control={<Checkbox checked={docs.contracheque} onChange={handleChange} name="contracheque" />} label="Contracheque" />
+        <FormControlLabel control={<Checkbox checked={docs.posse} onChange={handleChange} name="posse" />} label="Termo de Posse" />
+        <FormControlLabel control={<Checkbox checked={docs.veracidade} onChange={handleChange} name="veracidade" />} label="Termo de Veracidade" />
         <FormControlLabel
-          control={<Checkbox />}
+          control={<Checkbox checked={docs.estadoc} onChange={handleChange} name="estadoc" />}
           label="Declaração de Estado Civil"
         />
-        <FormControlLabel control={<Checkbox />} label="ID do Dependente" />
+        <FormControlLabel control={<Checkbox checked={docs.depid} onChange={handleChange} name="depid" />} label="ID do Dependente" />
         <FormControlLabel
-          control={<Checkbox />}
+          control={<Checkbox checked={docs.decres} onChange={handleChange} name="decres" />}
           label="Declaração de Residência"
         />
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ minWidth: "30%", maxWidth: "50%" }}
+          onClick={(e: BaseSyntheticEvent) => submitCheckboxes(e)}
+        >
+          Generate Message
+        </Button>
+        <TemporaryDrawer />
       </FormGroup>
     </div>
-  );
+  )
 }
