@@ -91,7 +91,6 @@ export default function CheckboxLabels() {
         >
           Generate Message
         </Button>
-        <TemporaryDrawer />
       </FormGroup>
     </div>
   )
