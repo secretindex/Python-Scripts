@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const Checkboxes = () => {
-  const [_checkboxes, _setCheckboxes] = useState<Array<string>>([]);
+  const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
 
   return (
     <section className="checkboxes">
@@ -105,7 +105,7 @@ const Checkboxes = () => {
         </form>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Checkboxes;
+export default Checkboxes

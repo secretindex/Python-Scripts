@@ -1,5 +1,5 @@
 import text from "./text"
-import { DocsText } from "./docsInterface"
+import { DocsText, RequiredDocs } from "./docsInterface"
 
 const pendingTexts: DocsText = {
   foto: "Foto do rosto de frente segurando documento de identidade ao lado",
@@ -22,15 +22,24 @@ const pendingTexts: DocsText = {
 
 class EndText {
   private upper: string = text.upperText
-  private bottom: string = text.bottomText
   private midText: string = ""
-  fields: Array<string>
-  constructor(fields: Array<string>) {
+  private bottom: string = text.bottomText
+  fields: RequiredDocs
+
+  constructor(fields: RequiredDocs) {
     this.fields = fields
   }
 
   returnFullText(): string {
-    return this.upper + "\n\n" + this.midText + "\n\n" + this.bottom
+    for (let i = 0; i < this.fields.length; i++) {
+      this.midText += `- ${pendingTexts[this.fields[i]]};\n`
+    }
+
+    if (!this.midText) {
+      return ""
+    }
+
+    return this.upper + "\n\n" + this.midText + "\n" + this.bottom
   }
 }
 

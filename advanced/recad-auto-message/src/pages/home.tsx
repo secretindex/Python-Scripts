@@ -12,7 +12,7 @@ function Home() {
       <Box
         sx={{
           width: "100%",
-          height: "100%", // You can change this to any specific height
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           gap: "6px",
@@ -20,9 +20,7 @@ function Home() {
           padding: 2,
         }}
       >
-        <Typography textAlign={"left"}>
-          Result
-        </Typography>
+        <Typography textAlign={"left"}>Result</Typography>
         <TextField
           variant="outlined"
           multiline
