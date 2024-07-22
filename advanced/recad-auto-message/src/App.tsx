@@ -6,7 +6,7 @@ import { RestartAlt } from "@mui/icons-material"
 import Menu from "./components/Menu"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { useState, useContext } from "react"
+import { createContext } from "react"
 
 const router = createBrowserRouter([
   {
@@ -16,8 +16,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const situation = useState<boolean>(false);
-  
   return (
     <main>
       <Menu />
