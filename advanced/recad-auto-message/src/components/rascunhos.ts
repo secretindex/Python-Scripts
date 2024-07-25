@@ -1,0 +1,15 @@
+// const [docs, setDocs] = useState<RequiredDocs>({
+//   foto: false,
+//   id: false,
+//   pis: false,
+//   residencia: false,
+//   uniao: false,
+//   casamento: false,
+//   nascimento: false,
+//   contracheque: false,
+//   posse: false,
+//   veracidade: false,
+//   estadoc: false,
+//   depid: false,
+//   decres: false,
+// })
