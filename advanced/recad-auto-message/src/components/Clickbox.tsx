@@ -1,41 +1,28 @@
+import { useContext } from "react"
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Checkbox from "@mui/material/Checkbox"
 import { BaseSyntheticEvent, useState } from "react"
 import { Box, Button, Typography } from "@mui/material"
-import { RequiredDocs } from "../utils/docsInterface"
+import { CheckboxContext } from "../contexts/CheckboxContext"
 
 export default function CheckboxLabels() {
   const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
-  const [docs, setDocs] = useState<RequiredDocs>({
-    foto: false,
-    id: false,
-    pis: false,
-    residencia: false,
-    uniao: false,
-    casamento: false,
-    nascimento: false,
-    contracheque: false,
-    posse: false,
-    veracidade: false,
-    estadoc: false,
-    depid: false,
-    decres: false,
-  })
-
+  const reqDocs = useContext(CheckboxContext)
   const handleChange = (e: BaseSyntheticEvent) => {
     console.log(e.target)
     const name: string | any = e.target.name
 
-    setDocs({
-      ...docs,
-      [name]: docs[name] === true ? false : true,
+    // Any type error
+    reqDocs?.setDocs({
+      ...reqDocs.docs,
+      [name]: reqDocs.docs[name] === true ? false : true,
     })
   }
 
   const submitCheckboxes = (e: BaseSyntheticEvent) => {
     console.log(e.target)
-    console.log(docs)
+    console.log(reqDocs?.docs)
   }
 
   return (
@@ -48,26 +35,38 @@ export default function CheckboxLabels() {
       <FormGroup>
         <FormControlLabel
           control={
-            <Checkbox checked={docs.foto} onChange={handleChange} name="foto" />
+            <Checkbox
+              checked={reqDocs?.docs.foto}
+              onChange={handleChange}
+              name="foto"
+            />
           }
           label="Foto + ID"
         />
         <FormControlLabel
           control={
-            <Checkbox checked={docs.id} onChange={handleChange} name="id" />
+            <Checkbox
+              checked={reqDocs?.docs.id}
+              onChange={handleChange}
+              name="id"
+            />
           }
           label="Identidade"
         />
         <FormControlLabel
           control={
-            <Checkbox checked={docs.pis} onChange={handleChange} name="pis" />
+            <Checkbox
+              checked={reqDocs?.docs.pis}
+              onChange={handleChange}
+              name="pis"
+            />
           }
           label="PIS/PASEP ou NIT"
         />
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.residencia}
+              checked={reqDocs?.docs.residencia}
               onChange={handleChange}
               name="residencia"
             />
@@ -77,7 +76,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.uniao}
+              checked={reqDocs?.docs.uniao}
               onChange={handleChange}
               name="uniao"
             />
@@ -87,7 +86,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.casamento}
+              checked={reqDocs?.docs.casamento}
               onChange={handleChange}
               name="casamento"
             />
@@ -97,7 +96,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.contracheque}
+              checked={reqDocs?.docs.contracheque}
               onChange={handleChange}
               name="contracheque"
             />
@@ -107,7 +106,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.posse}
+              checked={reqDocs?.docs.posse}
               onChange={handleChange}
               name="posse"
             />
@@ -117,7 +116,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.veracidade}
+              checked={reqDocs?.docs.veracidade}
               onChange={handleChange}
               name="veracidade"
             />
@@ -127,7 +126,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.estadoc}
+              checked={reqDocs?.docs.estadoc}
               onChange={handleChange}
               name="estadoc"
             />
@@ -137,7 +136,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.depid}
+              checked={reqDocs?.docs.depid}
               onChange={handleChange}
               name="depid"
             />
@@ -147,7 +146,7 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={docs.decres}
+              checked={reqDocs?.docs.decres}
               onChange={handleChange}
               name="decres"
             />
