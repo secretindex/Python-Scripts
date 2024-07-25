@@ -31,6 +31,7 @@ class EndText {
   }
 
   returnFullText(): string {
+    // type any "error"
     for (let i = 0; i < this.fields.length; i++) {
       this.midText += `- ${pendingTexts[this.fields[i]]};\n`
     }
