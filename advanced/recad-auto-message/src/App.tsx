@@ -6,21 +6,35 @@ import { RestartAlt } from "@mui/icons-material"
 import Menu from "./components/Menu"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { createContext } from "react"
+import CheckboxContextProvider from "./contexts/CheckboxContext"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
   },
-]);
+  {
+    path: "/ativos",
+    element: <Home />,
+  },
+  {
+    path: "/aposentados",
+    element: <h1>APosentados</h1>,
+  },
+  {
+    path: "/pensionistas",
+    element: <h1>Pensionistas</h1>,
+  },
+])
 
 function App() {
   return (
     <main>
       <Menu />
       <section className="app-container">
-        <RouterProvider router={router} />
+        <CheckboxContextProvider>
+          <RouterProvider router={router} />
+        </CheckboxContextProvider>
         <div className="bottom-right">
           <IconButton
             className="IconButton"
