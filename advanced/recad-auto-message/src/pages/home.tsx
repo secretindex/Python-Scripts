@@ -5,38 +5,38 @@ import CheckboxLabels from "../components/Clickbox"
 
 function Home() {
   return (
-    <section className="app-container">
-      <div className="checkbox-container">
-        <CheckboxLabels />
-      </div>
-      <Box
-        sx={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          gap: "6px",
-          justifyContent: "center",
-          padding: 2,
-        }}
-      >
-        <Typography textAlign={"left"}>Result</Typography>
-        <TextField
-          variant="outlined"
-          multiline
-          minRows={20}
-          maxRows={30}
-          fullWidth
+      <section className="app-container">
+        <div className="checkbox-container">
+          <CheckboxLabels />
+        </div>
+        <Box
           sx={{
+            width: "100%",
             height: "100%",
-            "& .MuiInputBase-root": {
-              height: "100%",
-              alignItems: "start",
-            },
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px",
+            justifyContent: "center",
+            padding: 2,
           }}
-        />
-      </Box>
-    </section>
+        >
+          <Typography textAlign={"left"}>Result</Typography>
+          <TextField
+            variant="outlined"
+            multiline
+            minRows={20}
+            maxRows={30}
+            fullWidth
+            sx={{
+              height: "100%",
+              "& .MuiInputBase-root": {
+                height: "100%",
+                alignItems: "start",
+              },
+            }}
+          />
+        </Box>
+      </section>
   )
 }
 

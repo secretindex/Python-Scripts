@@ -24,7 +24,7 @@ export default function TemporaryDrawer() {
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {["Ativos", "Aposentados"].map((text, index) => (
-          <Link to={text}>
+          <Link style={{ color: "inherit" }} key={text} to={text}>
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -39,14 +39,16 @@ export default function TemporaryDrawer() {
       <Divider />
       <List>
         {["Pensionistas"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+          <Link style={{ color: "inherit" }} key={text} to={text}>
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>

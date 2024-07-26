@@ -1,8 +1,8 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import TemporaryDrawer from './Sidebar';
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import Toolbar from "@mui/material/Toolbar"
+import Typography from "@mui/material/Typography"
+import TemporaryDrawer from "./Sidebar"
 
 export default function Menu() {
   return (
@@ -16,5 +16,5 @@ export default function Menu() {
         </Toolbar>
       </AppBar>
     </Box>
-  );
+  )
 }
