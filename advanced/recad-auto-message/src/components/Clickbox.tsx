@@ -5,10 +5,20 @@ import Checkbox from "@mui/material/Checkbox"
 import { BaseSyntheticEvent, useState } from "react"
 import { Box, Button, Typography } from "@mui/material"
 import { CheckboxContext } from "../contexts/CheckboxContext"
+import { TextFieldContext } from "../contexts/TextfieldContext"
+import TextField from "@mui/material/TextField"
+import EndText from "../utils/endTextGen"
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 export default function CheckboxLabels() {
   const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
   const reqDocs = useContext(CheckboxContext)
+  const textField = useContext(TextFieldContext)
+
   const handleChange = (e: BaseSyntheticEvent) => {
     console.log(e.target)
     const name: string | any = e.target.name
@@ -21,25 +31,45 @@ export default function CheckboxLabels() {
   }
 
   const submitCheckboxes = (e: BaseSyntheticEvent) => {
-    console.log(e.target)
-    console.log(reqDocs?.docs)
+    const endText = new EndText(reqDocs!.docs)
+    const fullText: string = endText.returnFullText()
+
+    console.log(fullText)
+    // console.log(reqDocs?.docs)
+
+    textField?.setText(fullText || "")
   }
 
   return (
     <div>
-      <Box>
-        <Typography variant="h2" sx={{ fontSize: "24px", textAlign: "left" }}>
-          Pendências
+      <Box display={"flex"} flexDirection={"column"} gap={"10px"}>
+        <TextField id="outlined-basic" label="Nome" variant="outlined" />
+        <Typography variant="h2" sx={{ fontSize: "1.5rem", textAlign: "left" }}>
+          Documentos
         </Typography>
       </Box>
       <FormGroup>
         <FormControlLabel
           control={
-            <Checkbox
-              checked={reqDocs?.docs.foto}
-              onChange={handleChange}
-              name="foto"
-            />
+            <>
+              <InputLabel>Age</InputLabel>
+              <Select
+        labelId="demo-select-small-label"
+        id="demo-select-small"
+        label="Age"
+      >
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value={1}>Sim</MenuItem>
+        <MenuItem value={0}>Não</MenuItem>
+      </Select>
+            </>
+            // <Checkbox
+            //   checked={reqDocs?.docs.foto}
+            //   onChange={handleChange}
+            //   name="foto"
+            // />
           }
           label="Foto + ID"
         />

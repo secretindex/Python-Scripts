@@ -24,23 +24,36 @@ class EndText {
   private upper: string = text.upperText
   private midText: string = ""
   private bottom: string = text.bottomText
+  private textFields: Array<string>
   fields: RequiredDocs
 
   constructor(fields: RequiredDocs) {
     this.fields = fields
+    this.textFields = []
+  }
+
+  addTextFields(): Array<string> | [] {
+    for (const i in this.fields) {
+      if (this.fields[i] === false) {
+        this.textFields.push(i);
+      }
+    }
+
+    return []
   }
 
   returnFullText(): string {
+    this.addTextFields()
     // type any "error"
-    for (let i = 0; i < this.fields.length; i++) {
-      this.midText += `- ${pendingTexts[this.fields[i]]};\n`
+    for (let i = 0; i < this.textFields.length; i++) {
+      this.midText += `- ${pendingTexts[this.textFields[i]]};\n`
     }
 
     if (!this.midText) {
       return ""
     }
 
-    return this.upper + "\n\n" + this.midText + "\n" + this.bottom
+    return this.upper + "\n" + this.midText + this.bottom
   }
 }
 

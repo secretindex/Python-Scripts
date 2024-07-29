@@ -1,5 +1,7 @@
 const upperMessage = `De acordo com o disposto no Decreto 7646/2023 e na Portaria 001/2024, seu cadastro foi recusado pela ausência da(s) seguinte(s) imagem(ns):`;
-const bottomMessage = `Para ter acesso às declarações e termos citados acesse o link abaixo:
+const bottomMessage = `Preencha os termos e declarações abaixo a punho. Também aceitamos assinatura digital com gov.br.
+
+Para ter acesso às declarações e termos citados acesse o link abaixo:
 https://storage3.onyxerp.com.br/565083f381ebc836a46f7e10ae5c30.pdf`;
 
 const submitCheckbox = document.querySelector(".submit");

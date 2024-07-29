@@ -1,9 +1,19 @@
 import { Box, TextField, Typography } from "@mui/material"
 import CheckboxLabels from "../components/Clickbox"
+import { BaseSyntheticEvent, useContext } from "react"
+import { TextFieldContext } from "../contexts/TextfieldContext"
 
 // TODO: Implement useContext to send generated message from checkbox component to text result component
 
 function Home() {
+  const textField = useContext(TextFieldContext)
+  const { text } = textField
+
+  const handleTextFieldChange = (e: BaseSyntheticEvent) => {
+    console.log(e.target.value)
+    textField?.setText(e.target.value)
+  }
+
   return (
       <section className="app-container">
         <div className="checkbox-container">
@@ -27,6 +37,8 @@ function Home() {
             minRows={20}
             maxRows={30}
             fullWidth
+            value={text}
+            onChange={handleTextFieldChange}
             sx={{
               height: "100%",
               "& .MuiInputBase-root": {
