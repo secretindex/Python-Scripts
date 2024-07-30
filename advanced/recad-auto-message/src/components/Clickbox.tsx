@@ -9,11 +9,6 @@ import { TextFieldContext } from "../contexts/TextfieldContext"
 import TextField from "@mui/material/TextField"
 import EndText from "../utils/endTextGen"
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-
 export default function CheckboxLabels() {
   const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
   const reqDocs = useContext(CheckboxContext)
@@ -51,25 +46,11 @@ export default function CheckboxLabels() {
       <FormGroup>
         <FormControlLabel
           control={
-            <>
-              <InputLabel>Age</InputLabel>
-              <Select
-        labelId="demo-select-small-label"
-        id="demo-select-small"
-        label="Age"
-      >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        <MenuItem value={1}>Sim</MenuItem>
-        <MenuItem value={0}>Não</MenuItem>
-      </Select>
-            </>
-            // <Checkbox
-            //   checked={reqDocs?.docs.foto}
-            //   onChange={handleChange}
-            //   name="foto"
-            // />
+            <Checkbox
+            checked={reqDocs?.docs.foto}
+            onChange={handleChange}
+            name="foto"
+            />
           }
           label="Foto + ID"
         />
