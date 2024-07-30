@@ -4,6 +4,7 @@ import Home from "./pages/home"
 import { IconButton } from "@mui/material"
 import { RestartAlt } from "@mui/icons-material"
 import Menu from "./components/Menu"
+import ComponentDois from "./components/ComponentDois"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import CheckboxContextProvider from "./contexts/CheckboxContext"
@@ -30,7 +31,7 @@ function App() {
                 <Route path="/ativos" element={<Home />}></Route>
                 <Route
                   path="/aposentados"
-                  element={<h1>Aposentados</h1>}
+                  element={<ComponentDois />}
                 ></Route>
                 <Route
                   path="/pensionistas"
