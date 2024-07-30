@@ -18,7 +18,6 @@ export default function CheckboxLabels() {
     console.log(e.target)
     const name: string | any = e.target.name
 
-    // Any type error
     reqDocs?.setDocs({
       ...reqDocs.docs,
       [name]: reqDocs.docs[name] === true ? false : true,
@@ -47,9 +46,9 @@ export default function CheckboxLabels() {
         <FormControlLabel
           control={
             <Checkbox
-            checked={reqDocs?.docs.foto}
-            onChange={handleChange}
-            name="foto"
+              checked={reqDocs?.docs.foto}
+              onChange={handleChange}
+              name="foto"
             />
           }
           label="Foto + ID"

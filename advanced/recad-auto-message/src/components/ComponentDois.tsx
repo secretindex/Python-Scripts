@@ -9,10 +9,12 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
+  Button,
 } from "@mui/material"
 
 import { ComplexDocs } from "../utils/docsInterface"
-import React, { useState } from "react"
+import React, { BaseSyntheticEvent, useContext, useState } from "react"
+import { SecondCheckboxContext } from "../contexts/SecondCheckboxContext"
 
 const documents: ComplexDocs = {
   foto: {
@@ -82,17 +84,45 @@ interface DocumentosOptionsProps {
   required?: boolean
   present?: boolean
   option?: any
+  keyName: string
   optionList?: Array<string>
 }
 
 const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
   name,
+  // present = true,
+  required = true,
+  keyName,
   optionList,
 }) => {
+  const globalDocs = useContext(SecondCheckboxContext)
   const [field, setField] = useState<string>("")
+
   const handleChange = (e: SelectChangeEvent) => {
-    console.log(e.target.value)
+    const nameVal = e.target
+    console.log(nameVal)
+    console.log(keyName)
+
+    console.log(nameVal.name)
+
+    const endObject = {
+      required: nameVal.name === "depId" ? false : true,
+      present: e.target.value ? true : false,
+      options: optionList
+        ? optionList[optionList.indexOf(e.target.value)]
+        : undefined,
+    }
+
+    if (!optionList) delete endObject.options
+
+    globalDocs?.setDocs({
+      ...globalDocs.docs,
+      [nameVal.name]: endObject,
+    })
+
     setField(e.target.value)
+
+    console.log(globalDocs!.docs)
   }
   return (
     <ListItem sx={{ width: "100%" }}>
@@ -102,6 +132,7 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
           labelId="field-name"
           label={name}
           value={field}
+          name={keyName}
           onChange={handleChange}
           fullWidth={true}
         >
@@ -128,7 +159,9 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
 }
 
 const ComponentDois = () => {
-  // const [docs, setDocs] = useState<ComplexDocs>();
+  const handleClick = (e: BaseSyntheticEvent) => {
+    console.log(e)
+  }
 
   return (
     <Box
@@ -136,7 +169,7 @@ const ComponentDois = () => {
       flexDirection={"column"}
       alignItems={"center"}
       padding={"0.3rem"}
-      width={"20%"}
+      width={"40%"}
     >
       <Box display={"flex"} alignItems={"center"} gap={"0.7rem"}>
         <Avatar>H</Avatar>
@@ -146,12 +179,19 @@ const ComponentDois = () => {
         {Object.keys(documents).map((doc: string) => {
           return (
             <DocumentOptions
-              name={doc}
+              key={doc}
+              name={documents[doc].name}
+              keyName={doc}
               optionList={documents[doc].optionList}
             />
           )
         })}
       </List>
+      <Box sx={{ width: "100%", padding: "0 1rem" }}>
+        <Button variant="contained" fullWidth onClick={handleClick}>
+          Verify
+        </Button>
+      </Box>
     </Box>
   )
 }

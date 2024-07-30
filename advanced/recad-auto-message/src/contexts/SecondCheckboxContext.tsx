@@ -72,6 +72,7 @@ const SecondCheckboxContextProvider: React.FC<ContextProps> = ({
   children,
 }) => {
   const [docs, setDocs] = useState<ComplexDocsEssentials>(documentsContext)
+
   return (
     <SecondCheckboxContext.Provider value={{ docs, setDocs }}>
       {children}

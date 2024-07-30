@@ -12,6 +12,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox"
 import MailIcon from "@mui/icons-material/Mail"
 import MenuIcon from "@mui/icons-material/Menu"
 import { Link } from "react-router-dom"
+import InfoIcon from "@mui/icons-material/Info"
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false)
@@ -44,6 +45,21 @@ export default function TemporaryDrawer() {
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["About"].map((text) => (
+          <Link style={{ color: "inherit" }} key={text} to={text}>
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <InfoIcon />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
