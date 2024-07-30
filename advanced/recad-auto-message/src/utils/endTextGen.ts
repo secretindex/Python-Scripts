@@ -34,7 +34,7 @@ class EndText {
 
   addTextFields(): Array<string> | [] {
     for (const i in this.fields) {
-      if (this.fields[i] === false) {
+      if (this.fields[i] === true) {
         this.textFields.push(i);
       }
     }
