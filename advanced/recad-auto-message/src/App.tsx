@@ -11,7 +11,6 @@ import { SecondCheckboxContextProvider } from "./contexts/SecondCheckboxContext"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import CheckboxContextProvider from "./contexts/CheckboxContext"
 import TextFieldContextProvider from "./contexts/TextfieldContext"
-// import { useContext } from "react"
 
 function App() {
   const restartAction = () => {

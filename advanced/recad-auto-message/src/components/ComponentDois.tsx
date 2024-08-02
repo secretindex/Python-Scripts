@@ -15,6 +15,7 @@ import {
 import { ComplexDocs } from "../utils/docsInterface"
 import React, { BaseSyntheticEvent, useContext, useState } from "react"
 import { SecondCheckboxContext } from "../contexts/SecondCheckboxContext"
+import EndText from "../utils/endTextGen"
 
 const documents: ComplexDocs = {
   foto: {
@@ -65,7 +66,7 @@ const documents: ComplexDocs = {
   },
   depId: {
     name: "Identidade Dependente",
-    required: true,
+    required: false,
     present: false,
     options: undefined,
     optionList: ["semdep", "dep"],
@@ -90,8 +91,6 @@ interface DocumentosOptionsProps {
 
 const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
   name,
-  // present = true,
-  required = true,
   keyName,
   optionList,
 }) => {
@@ -100,13 +99,14 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
 
   const handleChange = (e: SelectChangeEvent) => {
     const nameVal = e.target
-    console.log(nameVal)
+
+    setField(e.target.value)
+
     console.log(keyName)
 
-    console.log(nameVal.name)
-
+    // Error any type
     const endObject = {
-      required: nameVal.name === "depId" ? false : true,
+      required: nameVal.name === "depId" && optionList![optionList!.indexOf(e.target.value)] === 'dep' ? true : documents[nameVal.name].required,
       present: e.target.value ? true : false,
       options: optionList
         ? optionList[optionList.indexOf(e.target.value)]
@@ -120,10 +120,14 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
       [nameVal.name]: endObject,
     })
 
-    setField(e.target.value)
-
     console.log(globalDocs!.docs)
   }
+
+  const handleSubmit = () => {
+    const endTextTwo = new EndText(globalDocs?.docs)
+    console.log(endTextTwo.returnFullText())
+  }
+
   return (
     <ListItem sx={{ width: "100%" }}>
       <FormControl variant="outlined" fullWidth>

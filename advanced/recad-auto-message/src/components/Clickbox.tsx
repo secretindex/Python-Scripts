@@ -2,7 +2,7 @@ import { useContext } from "react"
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Checkbox from "@mui/material/Checkbox"
-import { BaseSyntheticEvent, useState } from "react"
+import { BaseSyntheticEvent } from "react"
 import { Box, Button, Typography } from "@mui/material"
 import { CheckboxContext } from "../contexts/CheckboxContext"
 import { TextFieldContext } from "../contexts/TextfieldContext"
@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField"
 import EndText from "../utils/endTextGen"
 
 export default function CheckboxLabels() {
-  const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
+  // const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
   const reqDocs = useContext(CheckboxContext)
   const textField = useContext(TextFieldContext)
 
