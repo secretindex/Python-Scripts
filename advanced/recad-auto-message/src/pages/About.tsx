@@ -1,5 +1,6 @@
 import { Typography, Link, Box } from "@mui/material"
 import GitHubIcon from "@mui/icons-material/GitHub"
+import MenuAnt from "../components/alt-antui/MenuAnt"
 
 const About = () => {
   return (
@@ -7,6 +8,7 @@ const About = () => {
       <Typography variant="h1" sx={{ fontSize: "3rem" }}>
         Made by Caio Programas
       </Typography>
+      <MenuAnt />
       <Box margin={"0.7rem 0"}>
         <Typography variant="subtitle1">
           Feel free to download and modify the code.
