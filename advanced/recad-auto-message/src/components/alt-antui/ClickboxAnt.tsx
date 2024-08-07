@@ -1,18 +1,16 @@
 import { useContext } from "react"
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
-import { Checkbox } from "antd"
+import { Checkbox, Input, Typography } from "antd"
 import type { CheckboxProps } from "antd"
 import { BaseSyntheticEvent } from "react"
-import { Box, Typography } from "@mui/material"
-import { Button } from "antd";
+import { Box } from "@mui/material"
+import { Button } from "antd"
 import { CheckboxContext } from "../../contexts/CheckboxContext"
 import { TextFieldContext } from "../../contexts/TextfieldContext"
-import TextField from "@mui/material/TextField"
 import EndText from "../../utils/endTextGen"
-import { Flex } from "antd";
 
-export default function CheckboxLabelsAnt () {
+export default function CheckboxLabelsAnt() {
   // const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
   const reqDocs = useContext(CheckboxContext)
   const textField = useContext(TextFieldContext)
@@ -40,12 +38,14 @@ export default function CheckboxLabelsAnt () {
   return (
     <div>
       <Box display={"flex"} flexDirection={"column"} gap={"10px"}>
-        <TextField id="outlined-basic" label="Nome" variant="outlined" />
-        <Typography variant="h2" sx={{ fontSize: "1.5rem", textAlign: "left" }}>
+        <Input id="outlined-basic" placeholder="Nome" />
+        <Typography.Title level={2} style={{ fontSize: "1.2rem", margin: "0.5rem 0" }}>
           Documentos
-        </Typography>
+        </Typography.Title>
       </Box>
-      <FormGroup sx={{ display: "flex", gap: "0.5rem", flexDirection: "column" }}>
+      <FormGroup
+        sx={{ display: "flex", gap: "0.5rem", flexDirection: "column" }}
+      >
         <FormControlLabel
           control={
             <Checkbox

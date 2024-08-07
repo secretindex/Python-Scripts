@@ -3,7 +3,9 @@ import "./App.css"
 import Home from "./pages/home"
 import { IconButton } from "@mui/material"
 import { RestartAlt } from "@mui/icons-material"
-import Menu from "./components/Menu"
+// import Menu from "./components/Menu"
+import ComponentTwo from "./components/alt-antui/ComponentAnt"
+import MenuAnt from "./components/alt-antui/MenuUp"
 import ComponentDois from "./components/ComponentDois"
 import About from "./pages/About"
 import { SecondCheckboxContextProvider } from "./contexts/SecondCheckboxContext"
@@ -23,7 +25,7 @@ function App() {
         <CheckboxContextProvider>
           <SecondCheckboxContextProvider>
             <TextFieldContextProvider>
-              <Menu />
+              <MenuAnt />
               <section className="app-container">
                 <Routes>
                   <Route path="/" element={<Home />}></Route>

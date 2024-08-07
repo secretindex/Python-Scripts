@@ -1,4 +1,8 @@
-import { Box, TextField, Typography } from "@mui/material"
+import {
+  Box,
+  // TextField,
+} from "@mui/material"
+import { Typography } from "antd"
 // import CheckboxLabels from "../components/Clickbox"
 import CheckboxLabelsAnt from "../components/alt-antui/ClickboxAnt"
 import { BaseSyntheticEvent, useContext } from "react"
@@ -7,15 +11,6 @@ import { TextFieldContext } from "../contexts/TextfieldContext"
 import { Input } from "antd"
 
 const { TextArea } = Input
-
-const App: React.FC = () => (
-  <>
-    <TextArea rows={4} />
-    <br />
-    <br />
-    <TextArea rows={4} placeholder="maxLength is 6" maxLength={6} />
-  </>
-)
 
 // TODO: Implement useContext to send generated message from checkbox component to text result component
 
@@ -41,10 +36,10 @@ function Home() {
           flexDirection: "column",
           gap: "6px",
           justifyContent: "center",
-          padding: 2,
+          padding: "0 2rem"
         }}
       >
-        <Typography textAlign={"left"}>Result</Typography>
+        <Typography.Title level={3} style={{ fontSize: "1.2rem", margin: "0" }}>Result</Typography.Title>
         <TextArea
           aria-multiline
           value={text.trim()}
