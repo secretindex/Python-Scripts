@@ -32,7 +32,8 @@ function App() {
                   <Route path="/ativos" element={<Home />}></Route>
                   <Route
                     path="/aposentados"
-                    element={<ComponentDois />}
+                    // element={<ComponentDois />}
+                    element={<ComponentTwo />}
                   ></Route>
                   <Route
                     path="/pensionistas"

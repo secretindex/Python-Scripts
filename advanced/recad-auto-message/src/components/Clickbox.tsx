@@ -24,7 +24,7 @@ export default function CheckboxLabels() {
     })
   }
 
-  const submitCheckboxes = (e: BaseSyntheticEvent) => {
+  const submitCheckboxes = (_e: BaseSyntheticEvent) => {
     const endText = new EndText(reqDocs!.docs)
     const fullText: string = endText.returnFullText()
 
