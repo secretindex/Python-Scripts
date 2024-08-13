@@ -1,4 +1,3 @@
-
 import { ComplexDocs } from "../../utils/docsInterface"
 import { SecondCheckboxContext } from "../../contexts/SecondCheckboxContext"
 import EndText from "../../utils/endTextGen"
@@ -75,15 +74,15 @@ interface DocumentosOptionsProps {
   optionList?: Array<string>
 }
 
-import React, { useState, useContext } from 'react';
-import { List, Avatar, Typography, Select, Form, Button, Row, Col } from 'antd';
+import React, { useState, useContext } from "react"
+import { List, Typography, Select, Form, Button, Row, Col, Space } from "antd"
 
-const { Option } = Select;
+const { Option } = Select
 
 interface DocumentosOptionsProps {
-  name: string;
-  keyName: string;
-  optionList?: string[];
+  name: string
+  keyName: string
+  optionList?: string[]
 }
 
 const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
@@ -91,48 +90,35 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
   keyName,
   optionList,
 }) => {
-  const globalDocs = useContext(SecondCheckboxContext);
-  const [field, setField] = useState<string>("");
+  const globalDocs = useContext(SecondCheckboxContext)
+  const [field, setField] = useState<string>("")
 
-   const handleChange = (value: string) => {
+  const handleChange = (value: string) => {
+    setField(value)
 
-    setField(value);
-
-    console.log(keyName);
-
-    // Error any type
     const endObject = {
       required:
-        keyName === "depId" && optionList && optionList[optionList.indexOf(value)] === 'dep'
+        keyName === "depId" &&
+        optionList &&
+        optionList[optionList.indexOf(value)] === "dep"
           ? true
           : documents[keyName].required,
       present: value ? true : false,
       options: optionList ? optionList[optionList.indexOf(value)] : undefined,
-    };
+    }
 
-    if (!optionList) delete endObject.options;
+    if (!optionList) delete endObject.options
 
     globalDocs?.setDocs({
       ...globalDocs.docs,
       [keyName]: endObject,
-    });
-
-    console.log(globalDocs!.docs);
-  };
-
-  const handleSubmit = () => {
-    const endTextTwo = new EndText(globalDocs?.docs);
-    console.log(endTextTwo.returnFullText());
-  };
+    })
+  }
 
   return (
-    <List.Item style={{ width: '100%' }}>
-      <Form.Item label={name} style={{ width: '100%' }}>
-        <Select
-          value={field}
-          onChange={handleChange}
-          style={{ width: '100%' }}
-        >
+    <List.Item style={{ padding: 0, margin: 0 }}>
+      <Form.Item label={name} style={{ width: "100%" }}>
+        <Select value={field} onChange={handleChange} style={{ width: "100%" }}>
           {optionList ? (
             optionList.map((opt) => (
               <Option key={opt} value={opt}>
@@ -152,37 +138,45 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
         </Select>
       </Form.Item>
     </List.Item>
-  );
-};
+  )
+}
 
-const ComponentDois = () => {
+const ComponentThree = () => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e);
-  };
+    console.log(e)
+  }
 
   return (
-    <Row justify="center" align="middle" style={{ padding: '0.3rem', width: '100%' }}>
-      <Col span={12}>
-        <Row justify="center" align="middle" style={{ marginBottom: '1rem' }}>
-          <Avatar>H</Avatar>
-          <Typography style={{ fontSize: '1.2rem', marginLeft: '0.7rem' }}>Cadastro</Typography>
-        </Row>
-        <List style={{ width: '100%' }}>
-          {Object.keys(documents).map((doc: string) => (
-            <DocumentOptions
-              key={doc}
-              name={documents[doc].name}
-              keyName={doc}
-              optionList={documents[doc].optionList}
-            />
-          ))}
-        </List>
-        <Button type="primary" block onClick={handleClick}>
-          Verify
-        </Button>
+    <Row justify="center" style={{ padding: "0.3rem", width: "100%" }}>
+      <Col span={6}>
+        <Space
+          direction="vertical"
+          size="small"
+          style={{ display: "flex", width: "100%" }}
+        >
+          <Typography.Title
+            level={4}
+            style={{ textAlign: "center", marginBottom: 0 }}
+          >
+            Cadastro
+          </Typography.Title>
+          <List style={{ width: "100%" }}>
+            {Object.keys(documents).map((doc: string) => (
+              <DocumentOptions
+                key={doc}
+                name={documents[doc].name}
+                keyName={doc}
+                optionList={documents[doc].optionList}
+              />
+            ))}
+          </List>
+          <Button type="primary" block onClick={handleClick}>
+            Verify
+          </Button>
+        </Space>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default ComponentDois;
+export default ComponentThree

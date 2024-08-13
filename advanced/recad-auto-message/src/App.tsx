@@ -4,7 +4,8 @@ import Home from "./pages/home"
 import { IconButton } from "@mui/material"
 import { RestartAlt } from "@mui/icons-material"
 // import Menu from "./components/Menu"
-import ComponentTwo from "./components/alt-antui/ComponentAnt"
+// import ComponentTwo from "./components/alt-antui/ComponentAnt"
+import ComponentThree from "./components/alt-antui/ComponentTwo"
 import MenuAnt from "./components/alt-antui/MenuUp"
 import ComponentDois from "./components/ComponentDois"
 import About from "./pages/About"
@@ -33,7 +34,7 @@ function App() {
                   <Route
                     path="/aposentados"
                     // element={<ComponentDois />}
-                    element={<ComponentTwo />}
+                    element={<ComponentThree />}
                   ></Route>
                   <Route
                     path="/pensionistas"
