@@ -1,11 +1,24 @@
 import { Box } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 
-const Loading = () => {
+interface LoadingProps {
+  children: React.ReactNode
+  isLoading: boolean
+}
+
+const Loading: React.FC<LoadingProps> = ({ children, isLoading = true }) => {
   return (
-    <Box sx={{ display: "flex" }}>
-      <CircularProgress />
-    </Box>
+    <>
+      {isLoading ? (
+        <Box className=" w-full h-full flex justify-center items-center">
+          <CircularProgress />
+        </Box >
+      ) : (
+        <>
+          {children}
+        </>
+      )}
+    </>
   );
 }
 

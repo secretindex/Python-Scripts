@@ -1,12 +1,9 @@
-// import restart from "./assets/restart.svg";
 import "./App.css"
 import Home from "./pages/home"
 import { IconButton } from "@mui/material"
 import { RestartAlt } from "@mui/icons-material"
-// import Menu from "./components/Menu"
 import ComponentTwo from "./components/alt-antui/ComponentAnt"
 import MenuAnt from "./components/alt-antui/MenuUp"
-import ComponentDois from "./components/ComponentDois"
 import About from "./pages/About"
 import { SecondCheckboxContextProvider } from "./contexts/SecondCheckboxContext"
 
@@ -20,13 +17,13 @@ function App() {
   }
 
   return (
-    <main>
+    <main className="h-screen w-screen">
       <Router>
         <CheckboxContextProvider>
           <SecondCheckboxContextProvider>
             <TextFieldContextProvider>
               <MenuAnt />
-              <section className="app-container">
+              <section className="app-container w-full">
                 <Routes>
                   <Route path="/" element={<Home />}></Route>
                   <Route path="/ativos" element={<Home />}></Route>
