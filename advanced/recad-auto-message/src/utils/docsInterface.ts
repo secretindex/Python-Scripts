@@ -62,6 +62,15 @@ export interface ComplexDocsEssentials {
   }
 }
 
+interface Option {
+  opt: string
+  present: boolean
+}
+
+interface StableUnionOption extends Option {
+  estadoCivil: boolean
+}
+
 export interface ComplexDocs {
   foto: {
     name: "Foto + id"
@@ -87,7 +96,7 @@ export interface ComplexDocs {
     required: boolean
     present: boolean
     options: "solteiro" | "casado" | "uniao" | undefined
-    optionList: ["solteiro", "casado", "uniao"]
+    optionList: [Option, Option, StableUnionOption]
   }
   contracheque: {
     name: "Contracheque"
