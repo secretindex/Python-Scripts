@@ -9,6 +9,8 @@ import CheckboxContextProvider from "./contexts/CheckboxContext"
 import TextFieldContextProvider from "./contexts/TextfieldContext"
 import ComponentThree from "./components/alt-antui/ComponentTwo"
 
+let oi: string
+
 function App() {
   return (
     <main className="min-h-full">
