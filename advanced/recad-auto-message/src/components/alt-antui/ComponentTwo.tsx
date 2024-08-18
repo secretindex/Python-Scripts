@@ -1,7 +1,6 @@
-
 import { ComplexDocs } from "../../utils/docsInterface"
 import { SecondCheckboxContext } from "../../contexts/SecondCheckboxContext"
-import EndText from "../../utils/endTextGen"
+// import EndText from "../../utils/endTextGen"
 
 const documents: ComplexDocs = {
   foto: {
@@ -28,7 +27,21 @@ const documents: ComplexDocs = {
     required: true,
     present: false,
     options: undefined,
-    optionList: ["solteiro", "casado", "uniao"],
+    optionList: [
+      {
+        opt: "solteiro",
+        present: false
+      },
+      {
+        opt: "casado",
+        present: false
+      },
+      {
+        opt: "uniao",
+        present: false,
+        estadoCivil: false
+      }
+    ],
   },
   contracheque: {
     name: "Contracheque",
@@ -75,8 +88,8 @@ interface DocumentosOptionsProps {
   optionList?: Array<string>
 }
 
-import React, { useState, useContext } from 'react';
-import { List, Avatar, Typography, Select, Form, Button, Row, Col } from 'antd';
+import { useState, useContext } from 'react';
+import { Typography, Select, Form, Button, Row, Col, Space } from 'antd';
 
 const { Option } = Select;
 
@@ -94,13 +107,9 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
   const globalDocs = useContext(SecondCheckboxContext);
   const [field, setField] = useState<string>("");
 
-   const handleChange = (value: string) => {
-
+  const handleChange = (value: string) => {
     setField(value);
 
-    console.log(keyName);
-
-    // Error any type
     const endObject = {
       required:
         keyName === "depId" && optionList && optionList[optionList.indexOf(value)] === 'dep'
@@ -116,22 +125,17 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
       ...globalDocs.docs,
       [keyName]: endObject,
     });
-
-    console.log(globalDocs!.docs);
   };
 
-  const handleSubmit = () => {
-    const endTextTwo = new EndText(globalDocs?.docs);
-    console.log(endTextTwo.returnFullText());
-  };
+  console.log(optionList && typeof optionList?.entries !== "object")
 
   return (
-    <List.Item style={{ width: '100%' }}>
-      <Form.Item label={name} style={{ width: '100%' }}>
+    <Col span={6}>
+      <Form.Item className=" w-full m-0">
+        <label className=" text-gray-500" >{name}</label>
         <Select
           value={field}
           onChange={handleChange}
-          style={{ width: '100%' }}
         >
           {optionList ? (
             optionList.map((opt) => (
@@ -151,38 +155,41 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
           )}
         </Select>
       </Form.Item>
-    </List.Item>
+    </Col>
   );
 };
 
-const ComponentDois = () => {
+const ComponentThree = () => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log(e);
   };
 
   return (
-    <Row justify="center" align="middle" style={{ padding: '0.3rem', width: '100%' }}>
-      <Col span={12}>
-        <Row justify="center" align="middle" style={{ marginBottom: '1rem' }}>
-          <Avatar>H</Avatar>
-          <Typography style={{ fontSize: '1.2rem', marginLeft: '0.7rem' }}>Cadastro</Typography>
-        </Row>
-        <List style={{ width: '100%' }}>
-          {Object.keys(documents).map((doc: string) => (
-            <DocumentOptions
-              key={doc}
-              name={documents[doc].name}
-              keyName={doc}
-              optionList={documents[doc].optionList}
-            />
-          ))}
-        </List>
-        <Button type="primary" block onClick={handleClick}>
-          Verify
-        </Button>
-      </Col>
-    </Row>
+    <div className="flex flex-col gap-2 justify-start">
+      <Row className="p-2">
+        <Col className="w-full">
+          <Space direction="vertical" size="middle" className="flex w-full">
+            <Typography.Title level={4}>
+              Cadastro
+            </Typography.Title>
+            <Row gutter={[32, 8]}>
+              {Object.keys(documents).map((doc: string) => (
+                <DocumentOptions
+                  key={doc}
+                  name={documents[doc].name}
+                  keyName={doc}
+                  optionList={documents[doc].optionList}
+                />
+              ))}
+            </Row>
+          </Space>
+        </Col>
+      </Row>
+      <Button type="primary" className=" w-1/5" onClick={handleClick}>
+        Verify
+      </Button>
+    </div>
   );
 };
 
-export default ComponentDois;
+export default ComponentThree;
