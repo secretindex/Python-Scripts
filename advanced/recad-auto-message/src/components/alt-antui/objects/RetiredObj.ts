@@ -1,4 +1,3 @@
-
 const retiredDocuments: ComplexDocs = {
   foto: {
     name: "Foto + ID",
@@ -30,13 +29,19 @@ const retiredDocuments: ComplexDocs = {
         value: "s/u",
         children: [
           {
-            label: "sim",
-            value: "s/s"
+            label: "C. Nascimento",
+            value: "cn/u",
+            children: [
+              {
+                label: "sim",
+                value: "s/s",
+              },
+              {
+                label: "não",
+                value: "s/n",
+              },
+            ],
           },
-          {
-            label: "não",
-            value: "s/n"
-          }
         ],
       },
       {
@@ -45,13 +50,13 @@ const retiredDocuments: ComplexDocs = {
         children: [
           {
             label: "sim",
-            value: "c/s"
+            value: "c/s",
           },
           {
             label: "não",
-            value: "c/n"
-          }
-        ]
+            value: "c/n",
+          },
+        ],
       },
       {
         label: "uniao",
@@ -63,13 +68,13 @@ const retiredDocuments: ComplexDocs = {
             children: [
               {
                 label: "sim",
-                value: "un/s"
+                value: "un/s",
               },
               {
                 label: "não",
-                value: "un/n"
-              }
-            ]
+                value: "un/n",
+              },
+            ],
           },
           {
             label: "Div/Sep/Vi",
@@ -77,16 +82,16 @@ const retiredDocuments: ComplexDocs = {
             children: [
               {
                 label: "sim",
-                value: "dsvu/s"
+                value: "dsvu/s",
               },
               {
                 label: "não",
-                value: "dsvu/n"
-              }
-            ]
-          }
-        ]
-      }
+                value: "dsvu/n",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   contracheque: {

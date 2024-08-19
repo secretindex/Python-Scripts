@@ -18,18 +18,18 @@ const activesDocument: ComplexDocs = {
         children: [
           {
             label: "valido",
-            value: "id/v"
+            value: "id/v",
           },
           {
             label: "+ 10",
-            value: "id/10"
-          }
-        ]
+            value: "id/10",
+          },
+        ],
       },
       {
         label: "não",
-        value: "id/n"
-      }
+        value: "id/n",
+      },
     ],
   },
   residencia: {
@@ -44,11 +44,11 @@ const activesDocument: ComplexDocs = {
         children: [
           {
             label: "valido",
-            value: "cr/v"
+            value: "cr/v",
           },
           {
             label: "+60",
-            value: "cr/60"
+            value: "cr/60",
           },
           {
             label: "terceiros",
@@ -60,18 +60,22 @@ const activesDocument: ComplexDocs = {
                 children: [
                   {
                     value: "dr/s",
-                    label: "sim"
+                    label: "sim",
                   },
                   {
                     value: "dr/n",
-                    label: "nao"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
+                    label: "nao",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "não",
+        value: "cr/n",
+      },
     ],
   },
   estadoCivil: {
@@ -85,13 +89,19 @@ const activesDocument: ComplexDocs = {
         value: "s/u",
         children: [
           {
-            label: "sim",
-            value: "s/s"
+            label: "C. Nascimento",
+            value: "cns/u",
+            children: [
+              {
+                label: "sim",
+                value: "cns/s",
+              },
+              {
+                label: "não",
+                value: "cns/n",
+              },
+            ],
           },
-          {
-            label: "não",
-            value: "s/n"
-          }
         ],
       },
       {
@@ -99,14 +109,34 @@ const activesDocument: ComplexDocs = {
         value: "c/u",
         children: [
           {
-            label: "sim",
-            value: "c/s"
+            label: "C. Casamento",
+            value: "cerc/u",
+            children: [
+              {
+                label: "sim",
+                value: "cerc/s",
+              },
+              {
+                label: "não",
+                value: "cerc/n",
+              },
+            ],
           },
           {
-            label: "não",
-            value: "c/n"
-          }
-        ]
+            label: "C. Casamento Avb",
+            value: "cav/u",
+            children: [
+              {
+                label: "sim",
+                value: "cav/s",
+              },
+              {
+                label: "não",
+                value: "cav/n",
+              },
+            ],
+          },
+        ],
       },
       {
         label: "uniao",
@@ -118,13 +148,13 @@ const activesDocument: ComplexDocs = {
             children: [
               {
                 label: "sim",
-                value: "un/s"
+                value: "un/s",
               },
               {
                 label: "não",
-                value: "un/n"
-              }
-            ]
+                value: "un/n",
+              },
+            ],
           },
           {
             label: "Div/Sep/Vi",
@@ -132,16 +162,16 @@ const activesDocument: ComplexDocs = {
             children: [
               {
                 label: "sim",
-                value: "dsvu/s"
+                value: "dsvu/s",
               },
               {
                 label: "não",
-                value: "dsvu/n"
-              }
-            ]
-          }
-        ]
-      }
+                value: "dsvu/n",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   contracheque: {
@@ -187,30 +217,20 @@ const activesDocument: ComplexDocs = {
                     value: "deco/u",
                     children: [
                       {
-                        label: "sim",
-                        value: "deco/u2",
+                        label: "Decl. D. Eco",
+                        value: "deco/u3",
                         children: [
                           {
-                            label: "Decl. D. Eco",
-                            value: "deco/u3",
-                            children: [
-                              {
-                                label: "sim",
-                                value: "deco/s"
-                              },
-                              {
-                                label: "não",
-                                value: "cnd/n"
-                              }
-                            ]
-                          }
-                        ]
+                            label: "sim",
+                            value: "deco/s",
+                          },
+                          {
+                            label: "não",
+                            value: "deco/n",
+                          },
+                        ],
                       },
-                      {
-                        label: "não",
-                        value: "deco/n"
-                      }
-                    ]
+                    ],
                   },
                   {
                     label: "Padrão",
@@ -218,25 +238,49 @@ const activesDocument: ComplexDocs = {
                     children: [
                       {
                         label: "sim",
-                        value: "dp/s"
+                        value: "dp/s",
                       },
                       {
                         label: "não",
-                        value: "dp/n"
-                      }
-                    ]
-                  }
-                ]
+                        value: "dp/n",
+                      },
+                    ],
+                  },
+                  {
+                    label: "Curatela/Guarda",
+                    value: "cg/u",
+                    children: [
+                      {
+                        label: "Termo de Guarda/Curatela",
+                        value: "tgc/u",
+                        children: [
+                          {
+                            label: "sim",
+                            value: "tgc/s",
+                          },
+                          {
+                            label: "não",
+                            value: "tgc/n",
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    label: "Filho + 21",
+                    value: "dp/21",
+                  },
+                ],
               },
               {
                 label: "não",
-                value: "dep/id/n"
+                value: "dep/id/n",
               },
               {
                 label: "+ 10",
-                value: "dep/id/10"
-              }
-            ]
+                value: "dep/id/10",
+              },
+            ],
           },
           {
             label: "C. Nascimento",
@@ -244,22 +288,22 @@ const activesDocument: ComplexDocs = {
             children: [
               {
                 label: "sim",
-                value: "cnd/s"
+                value: "cnd/s",
               },
               {
                 label: "não",
-                value: "cnd/n"
-              }
-            ]
-          }
-        ]
+                value: "cnd/n",
+              },
+            ],
+          },
+        ],
       },
       {
         label: "não",
-        value: "dep/n"
-      }
+        value: "dep/n",
+      },
     ],
-  }
+  },
 }
 
 export default activesDocument

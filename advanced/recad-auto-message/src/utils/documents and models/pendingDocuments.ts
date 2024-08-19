@@ -1,3 +1,5 @@
+const invalidDocumens = {}
+
 const pendingDocuments = {
   foto: "Foto do rosto de frente segurando documento de identidade ao lado",
   id: "Documento de Identidade (RG ou CNH ou Conselho de Classe ou Passaporte ou Carteira de Identidade Militar)",
