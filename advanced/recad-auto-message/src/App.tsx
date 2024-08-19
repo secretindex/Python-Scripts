@@ -11,8 +11,6 @@ import CheckboxContextProvider from "./contexts/CheckboxContext"
 import TextFieldContextProvider from "./contexts/TextfieldContext"
 import ComponentThree from "./components/alt-antui/ActiveRegister"
 
-let oi: string
-
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   useEffect(() => {
@@ -32,7 +30,7 @@ function App() {
                   <Route path="/" element={<Home />}></Route>
                   <Route path="/ativos" element={<Home />}></Route>
                   <Route
-                    path="/aposentados"
+                    path="/register"
                     element={<ComponentThree />}
                   ></Route>
                   <Route
