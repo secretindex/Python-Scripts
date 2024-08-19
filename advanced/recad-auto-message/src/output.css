@@ -554,12 +554,17 @@ video {
   --tw-contain-style:  ;
 }
 
-.static {
-  position: static;
-}
-
 .m-0 {
   margin: 0px;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.block {
+  display: block;
 }
 
 .flex {
@@ -574,8 +579,8 @@ video {
   min-height: 100%;
 }
 
-.w-1\/5 {
-  width: 20%;
+.w-5\/6 {
+  width: 83.333333%;
 }
 
 .w-full {
@@ -594,12 +599,12 @@ video {
   align-items: center;
 }
 
-.justify-start {
-  justify-content: flex-start;
-}
-
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .gap-1 {
@@ -614,8 +619,16 @@ video {
   border-width: 1px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .p-0 {
   padding: 0px;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .p-2 {
@@ -632,6 +645,25 @@ video {
   padding-right: 1.5rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -639,6 +671,15 @@ video {
 
 .text-inherit {
   color: inherit;
+}
+
+.text-slate-950 {
+  --tw-text-opacity: 1;
+  color: rgb(2 6 23 / var(--tw-text-opacity));
+}
+
+.no-underline {
+  text-decoration-line: none;
 }
 
 @keyframes enter {
@@ -655,6 +696,10 @@ video {
   }
 }
 
+:root {
+  font-family: "Montserrat", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -665,6 +710,6 @@ body {
   height: 100vh;
 }
 
-body > div {
+body>div {
   height: 100%;
 }
