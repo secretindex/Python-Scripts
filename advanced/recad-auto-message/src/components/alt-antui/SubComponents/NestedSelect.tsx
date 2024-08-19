@@ -9,6 +9,7 @@ export interface OptionInt {
 }
 
 const onChange: CascaderProps<OptionInt>['onChange'] = (value) => {
+  console.log(value[value.length - 1])
   console.log(value);
 };
 
