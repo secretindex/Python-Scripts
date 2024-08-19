@@ -29,9 +29,6 @@ export default function CheckboxLabelsAnt() {
     const endText = new EndText(reqDocs!.docs)
     const fullText: string = endText.returnFullText()
 
-    console.log(fullText)
-    // console.log(reqDocs?.docs)
-
     textField?.setText(fullText || "")
   }
 

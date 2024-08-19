@@ -85,16 +85,18 @@ interface DocumentosOptionsProps {
   optionList?: string[]
 }
 
+
 const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
   name,
   keyName,
   optionList,
 }) => {
-  const globalDocs = useContext(SecondCheckboxContext)
   const [field, setField] = useState<string>("")
+  const globalDocs = useContext(SecondCheckboxContext)
 
   const handleChange = (value: string) => {
     setField(value)
+    console.log(globalDocs);
 
     const endObject = {
       required:
@@ -109,16 +111,16 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
 
     if (!optionList) delete endObject.options
 
-    globalDocs?.setDocs({
-      ...globalDocs.docs,
-      [keyName]: endObject,
-    })
+    globalDocs?.setDocs({ ...globalDocs.docs, [keyName]: endObject })
   }
 
   return (
-    <List.Item style={{ padding: 0, margin: 0 }}>
-      <Form.Item label={name} style={{ width: "100%" }}>
-        <Select value={field} onChange={handleChange} style={{ width: "100%" }}>
+    <List.Item style={{ padding: 0, margin: 0, borderBlockEnd: "none" }}>
+      <Form.Item className="w-full">
+        <label className="text-gray-600" htmlFor={field}>
+          {name}
+        </label>
+        <Select value={field} onChange={handleChange}>
           {optionList ? (
             optionList.map((opt) => (
               <Option key={opt} value={opt}>
@@ -142,18 +144,17 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
 }
 
 const ComponentThree = () => {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e)
+  const docs = useContext(SecondCheckboxContext)?.docs
+
+  const handleClick = (_e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log("svg icon")
+    console.log(docs)
   }
 
   return (
     <Row justify="center" style={{ padding: "0.3rem", width: "100%" }}>
-      <Col span={6}>
-        <Space
-          direction="vertical"
-          size="small"
-          style={{ display: "flex", width: "100%" }}
-        >
+      <Col span={8}>
+        <Space direction="vertical" size="small" className=" flex w-full">
           <Typography.Title
             level={4}
             style={{ textAlign: "center", marginBottom: 0 }}

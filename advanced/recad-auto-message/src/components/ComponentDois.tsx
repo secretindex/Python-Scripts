@@ -123,11 +123,6 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
     console.log(globalDocs!.docs)
   }
 
-  const handleSubmit = () => {
-    const endTextTwo = new EndText(globalDocs?.docs)
-    console.log(endTextTwo.returnFullText())
-  }
-
   return (
     <ListItem sx={{ width: "100%" }}>
       <FormControl variant="outlined" fullWidth>
@@ -164,6 +159,10 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
 
 const ComponentDois = () => {
   const handleClick = (e: BaseSyntheticEvent) => {
+    const globalDocs = useContext(SecondCheckboxContext)
+    const endTextTwo = new EndText(globalDocs?.docs)
+    console.log(endTextTwo.returnFullText())
+
     console.log(e)
   }
 
