@@ -1,32 +1,32 @@
-import { Typography, Link, Box } from "@mui/material"
+import { Typography, Layout } from "antd"
 import GitHubIcon from "@mui/icons-material/GitHub"
-import MenuAnt from "../components/alt-antui/MenuAnt"
+
+const { Content } = Layout
 
 const About = () => {
   return (
-    <section>
-      <Typography variant="h1" sx={{ fontSize: "3rem" }}>
+    <section className="py-5">
+      <Typography.Title level={2} className="text-5xl">
         Made by Caio Programas
-      </Typography>
-      <MenuAnt />
-      <Box margin={"0.7rem 0"}>
-        <Typography variant="subtitle1">
+      </Typography.Title>
+      <Content className="my-3">
+        <Typography.Text>
           Feel free to download and modify the code.
-        </Typography>
-        <Typography variant="subtitle2">
+        </Typography.Text>
+        <Typography.Paragraph>
           If you need help, open the sidebar and go to Help section
-        </Typography>
-      </Box>
-      <Box display={"flex"} alignItems={"center"} gap="0.5rem">
-        <Link
+        </Typography.Paragraph>
+      </Content>
+      <Content className="flex items-center gap-2">
+        <Typography.Link
           href="https://github.com/secretindex/Python-Scripts"
           target="_blank"
-          color={"inherit"}
+          className="text-slate-950"
         >
           <GitHubIcon />
-        </Link>
-        <Typography variant="caption">Official Repository</Typography>
-      </Box>
+          <Typography.Text>Official Repository</Typography.Text>
+        </Typography.Link>
+      </Content>
     </section>
   )
 }

@@ -1,55 +1,58 @@
-import { useContext } from "react"
+import { useContext, Dispatch, SetStateAction } from "react"
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
-import { Checkbox, Input, Typography } from "antd"
+import { Checkbox, Typography, Layout } from "antd"
 import type { CheckboxProps } from "antd"
 import { BaseSyntheticEvent } from "react"
 import { Box } from "@mui/material"
 import { Button } from "antd"
-import { CheckboxContext } from "../../contexts/CheckboxContext"
 import { TextFieldContext } from "../../contexts/TextfieldContext"
 import EndText from "../../utils/endTextGen"
+import { RequiredDocs } from "../../utils/docsInterface"
 
-export default function CheckboxLabelsAnt() {
-  // const [_checkboxes, _setCheckboxes] = useState<Array<string>>([])
-  const reqDocs = useContext(CheckboxContext)
+const { Content } = Layout
+
+interface LabelsProps {
+  docs: RequiredDocs
+  setDocs: Dispatch<SetStateAction<RequiredDocs>>
+}
+
+const CheckboxLabelsAnt: React.FC<LabelsProps> = ({ docs, setDocs }) => {
   const textField = useContext(TextFieldContext)
 
   const handleChange: CheckboxProps["onChange"] = (e) => {
     console.log(e.target)
     const name: string | any = e.target.name
 
-    reqDocs?.setDocs({
-      ...reqDocs.docs,
-      [name]: reqDocs.docs[name] === true ? false : true,
+    setDocs({
+      ...docs,
+      [name]: docs[name] === true ? false : true,
     })
   }
 
-  const submitCheckboxes = (e: BaseSyntheticEvent) => {
-    const endText = new EndText(reqDocs!.docs)
+  const submitCheckboxes = (_e: BaseSyntheticEvent) => {
+    const endText = new EndText(docs)
     const fullText: string = endText.returnFullText()
 
     console.log(fullText)
-    // console.log(reqDocs?.docs)
 
     textField?.setText(fullText || "")
   }
 
   return (
     <div>
-      <Box display={"flex"} flexDirection={"column"} gap={"10px"}>
-        <Input id="outlined-basic" placeholder="Nome" />
+      <Content className="flex flex-col gap-2">
         <Typography.Title level={2} style={{ fontSize: "1.2rem", margin: "0.5rem 0" }}>
           Documentos
         </Typography.Title>
-      </Box>
+      </Content>
       <FormGroup
         sx={{ display: "flex", gap: "0.5rem", flexDirection: "column" }}
       >
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.foto}
+              checked={docs.foto}
               onChange={handleChange}
               name="foto"
             />
@@ -59,7 +62,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.id}
+              checked={docs.id}
               onChange={handleChange}
               name="id"
             />
@@ -69,7 +72,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.pis}
+              checked={docs.pis}
               onChange={handleChange}
               name="pis"
             />
@@ -79,7 +82,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.residencia}
+              checked={docs.residencia}
               onChange={handleChange}
               name="residencia"
             />
@@ -89,7 +92,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.uniao}
+              checked={docs.uniao}
               onChange={handleChange}
               name="uniao"
             />
@@ -99,7 +102,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.casamento}
+              checked={docs.casamento}
               onChange={handleChange}
               name="casamento"
             />
@@ -109,7 +112,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.contracheque}
+              checked={docs.contracheque}
               onChange={handleChange}
               name="contracheque"
             />
@@ -119,7 +122,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.posse}
+              checked={docs.posse}
               onChange={handleChange}
               name="posse"
             />
@@ -129,7 +132,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.veracidade}
+              checked={docs.veracidade}
               onChange={handleChange}
               name="veracidade"
             />
@@ -139,7 +142,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.estadoc}
+              checked={docs.estadoc}
               onChange={handleChange}
               name="estadoc"
             />
@@ -149,7 +152,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.depid}
+              checked={docs.depid}
               onChange={handleChange}
               name="depid"
             />
@@ -159,7 +162,7 @@ export default function CheckboxLabelsAnt() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={reqDocs?.docs.decres}
+              checked={docs.decres}
               onChange={handleChange}
               name="decres"
             />
@@ -178,3 +181,5 @@ export default function CheckboxLabelsAnt() {
     </div>
   )
 }
+
+export default CheckboxLabelsAnt
