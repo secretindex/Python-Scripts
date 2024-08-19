@@ -13,55 +13,60 @@ interface DocumentosOptionsProps {
   optionList?: OptList
 }
 
-import { useState, useContext, FC } from 'react';
-import { Typography, Select, Form, Button, Row, Col, Space } from 'antd';
+import { useState, useContext, FC } from "react"
+import { Typography, Select, Form, Row, Col, Space, Layout } from "antd"
 import NestedSelect from "./SubComponents/NestedSelect"
+import TextModal from "./TextModal"
 
-const { Option } = Select;
+const { Option } = Select
+const { Content } = Layout
 
 interface DocumentosOptionsProps {
-  name: string;
-  keyName: string;
-  optionList?: OptList;
+  name: string
+  keyName: string
+  optionList?: OptList
 }
 
 // interface SelectComponentProps {
 //   optionList: OptList | undefined
 // }
 
-const SelectComponent: FC<DocumentosOptionsProps> = ({ name, keyName, optionList }) => {
-  const globalDocs = useContext(SecondCheckboxContext);
-  const [field, setField] = useState<string>("");
+const SelectComponent: FC<DocumentosOptionsProps> = ({
+  name,
+  keyName,
+  optionList,
+}) => {
+  const globalDocs = useContext(SecondCheckboxContext)
+  const [field, setField] = useState<string>("")
 
   const handleChange = (value: string) => {
-    setField(value);
+    setField(value)
 
-    console.log(optionList ? optionList : "marmota");
+    console.log(optionList ? optionList : "marmota")
 
     const endObject = {
       required:
-        keyName === "depId" && optionList && optionList[optionList.indexOf(value)] === 'dep'
+        keyName === "depId" &&
+        optionList &&
+        optionList[optionList.indexOf(value)] === "dep"
           ? true
           : activesDocument[keyName].required,
       present: value ? true : false,
       options: optionList ? optionList[optionList.indexOf(value)] : undefined,
-    };
+    }
 
-    if (!optionList) delete endObject.options;
+    if (!optionList) delete endObject.options
 
     globalDocs?.setDocs({
       ...globalDocs.docs,
       [keyName]: endObject,
-    });
-  };
+    })
+  }
 
   // Default
   if (!optionList) {
     return (
-      <Select
-        value={field}
-        onChange={handleChange}
-      >
+      <Select value={field} onChange={handleChange}>
         <Option key="sim" value="sim">
           Sim
         </Option>
@@ -72,13 +77,10 @@ const SelectComponent: FC<DocumentosOptionsProps> = ({ name, keyName, optionList
     )
   }
 
-  if (optionList.every(e => typeof e !== "object")) {
+  if (optionList.every((e) => typeof e !== "object")) {
     console.log(optionList)
     return (
-      <Select
-        value={field}
-        onChange={handleChange}
-      >
+      <Select value={field} onChange={handleChange}>
         {optionList.map((opt) => (
           <Option key={opt as string} value={opt}>
             {opt as string}
@@ -86,10 +88,8 @@ const SelectComponent: FC<DocumentosOptionsProps> = ({ name, keyName, optionList
         ))}
       </Select>
     )
-  } else if (optionList.every(e => typeof e === "object")) {
-    return (
-      <NestedSelect optionList={optionList} />
-    )
+  } else if (optionList.every((e) => typeof e === "object")) {
+    return <NestedSelect optionList={optionList} />
   }
 }
 
@@ -99,29 +99,40 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
   optionList,
 }) => {
   return (
-    <Col span={6}>
+    <Col span={8}>
       <Form.Item className=" w-full m-0">
-        <label className=" text-gray-500" >{name}</label>
-        <SelectComponent optionList={optionList} name={name} keyName={keyName} />
+        <label className=" text-gray-500">{name}</label>
+        <SelectComponent
+          optionList={optionList}
+          name={name}
+          keyName={keyName}
+        />
       </Form.Item>
     </Col>
-  );
-};
+  )
+}
 
 const ComponentThree = () => {
   const handleClick = (_e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("marmota");
-  };
+    console.log("marmota")
+  }
 
   return (
-    <div className="flex flex-col gap-2 p-10 justify-center items-center">
-      <Row className="p-2 justify-center">
-        <Col span={12}>
+    <div className="flex flex-col gap-2 p-10 justify-center items-center max-h-full">
+      <Row className="p-2 h-60 justify-center">
+        <Col span={18}>
           <Space direction="vertical" size="middle" className="flex w-full">
-            <Typography.Title className="text-7xl font-extrabold" level={4}>
+            <Typography.Title
+              style={{
+                fontSize: "2rem",
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
+              level={4}
+            >
               CADASTRO
             </Typography.Title>
-            <Row gutter={[16, 8]}>
+            <Row gutter={[64, 16]}>
               {Object.keys(activesDocument).map((doc: string) => (
                 <DocumentOptions
                   key={doc}
@@ -131,14 +142,17 @@ const ComponentThree = () => {
                 />
               ))}
             </Row>
-            <Button type="primary" block onClick={handleClick}>
+            <Content className="w-full flex justify-center">
+              <TextModal />
+            </Content>
+            {/* <Button type="primary" block onClick={handleClick}>
               Verify
-            </Button>
+            </Button> */}
           </Space>
         </Col>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default ComponentThree;
+export default ComponentThree
