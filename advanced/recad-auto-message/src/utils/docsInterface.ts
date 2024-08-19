@@ -1,3 +1,4 @@
+// For checkboxes
 export interface RequiredDocs {
   foto: boolean
   id: boolean
@@ -63,17 +64,17 @@ export interface ComplexDocsEssentials {
 }
 
 interface Option {
-  opt: string
-  present: boolean
+  label: string
+  value: number | string | undefined
 }
 
-interface StableUnionOption extends Option {
-  estadoCivil: boolean
+interface NestedOption extends Option {
+  children?: NestedOption[]
 }
 
 export interface ComplexDocs {
   foto: {
-    name: "Foto + id"
+    name: "Foto + ID"
     required: boolean
     present: boolean
   }
@@ -82,21 +83,21 @@ export interface ComplexDocs {
     required: boolean
     present: boolean
     options: "valido" | "+10" | undefined
-    optionList: ["valido", "+10"]
+    optionList: NestedOption[]
   }
   residencia: {
     name: "C. Residencia"
     required: boolean
     present: boolean
     options: "valido" | "+60" | "terceiros" | undefined
-    optionList: ["valido", "+60", "terceiros"]
+    optionList: NestedOption[]
   }
   estadoCivil: {
     name: "Estado civil"
     required: boolean
     present: boolean
     options: "solteiro" | "casado" | "uniao" | undefined
-    optionList: [Option, Option, StableUnionOption]
+    optionList: NestedOption[]
   }
   contracheque: {
     name: "Contracheque"
@@ -114,23 +115,16 @@ export interface ComplexDocs {
     present: boolean
   }
   comprovanteEstado: {
-    name: "C. de Estado Civil"
+    name: "C. Estado Civil"
     required: boolean
     present: boolean
   }
   depId: {
-    name: "Identidade Dependente"
+    name: string
     required: boolean
     present: boolean
     options: "nodep" | "dep" | undefined
-    optionList: ["semdep", "dep"]
-  }
-  declaracaoRes: {
-    name: "Declaração de Residência"
-    required: boolean
-    present: boolean
-    options: "Não requerido" | "Requerido" | undefined
-    optionList: ["Não requerido", "Requerido"]
+    optionList: NestedOption[]
   }
 }
 
