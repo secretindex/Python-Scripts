@@ -18,6 +18,6 @@ body {
   height: 100vh;
 }
 
-body>div {
+body>#root {
   height: 100%;
 }
