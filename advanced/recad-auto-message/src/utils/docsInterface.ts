@@ -99,6 +99,11 @@ export interface ComplexDocs {
     options: "solteiro" | "casado" | "uniao" | undefined
     optionList: NestedOption[]
   }
+  pis: {
+    name: string
+    required: boolean
+    present: boolean
+  }
   contracheque: {
     name: "Contracheque"
     required: boolean

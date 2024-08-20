@@ -6,7 +6,7 @@ const { Text, Title, Link } = Typography
 
 const popContent = (
   <div>
-    <Text>Escute e/ou baixe de graça 😀</Text>
+    <Text>Escute e/ou baixe de graça 🎶</Text>
   </div>
 )
 

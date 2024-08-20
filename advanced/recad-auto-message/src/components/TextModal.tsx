@@ -3,18 +3,29 @@ import { Button, Modal, message } from "antd"
 import { Input } from "antd"
 import { TextFieldContext } from "../contexts/TextfieldContext"
 import { CopyOutlined } from "@ant-design/icons"
+import EndText from "../utils/endTextGen"
+import { SecondCheckboxContext } from "../contexts/SecondCheckboxContext"
 
 const { TextArea } = Input
 
 const TextModal: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const textField = useContext(TextFieldContext)
+  const globalDocs = useContext(SecondCheckboxContext)
   const text = textField!.text
 
   const [_messageApi, contextHolder] = message.useMessage()
 
+  const generateText = () => {
+    const finalText = new EndText(globalDocs!.docs)
+    const rejectText = finalText.returnFinalText()
+
+    textField?.setText(rejectText)
+  }
+
   const showModal = () => {
     setIsModalOpen(true)
+    generateText()
   }
 
   const handleCancel = () => {

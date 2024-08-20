@@ -1,6 +1,12 @@
 import activesDocument from "./objects/ActivesObj"
-import { SecondCheckboxContext } from "../contexts/SecondCheckboxContext"
+import {
+  documentsContext,
+  SecondCheckboxContext,
+} from "../contexts/SecondCheckboxContext"
 import { OptionInt } from "./SubComponents/NestedSelect"
+import { ReloadOutlined } from "@ant-design/icons"
+import { FloatButton } from "antd"
+import { TextFieldContext } from "../contexts/TextfieldContext"
 
 type OptList = Array<string | OptionInt | undefined>
 
@@ -44,22 +50,11 @@ const SelectComponent: FC<DocumentosOptionsProps> = ({
 
     console.log(optionList ? optionList : "marmota")
 
-    const endObject = {
-      required:
-        keyName === "depId" &&
-          optionList &&
-          optionList[optionList.indexOf(value)] === "dep"
-          ? true
-          : activesDocument[keyName].required,
-      present: value ? true : false,
-      options: optionList ? optionList[optionList.indexOf(value)] : undefined,
-    }
-
-    if (!optionList) delete endObject.options
+    // console.log(field + " " + value)
 
     globalDocs?.setDocs({
       ...globalDocs.docs,
-      [keyName]: endObject,
+      [keyName]: value == "sim" ? true : false,
     })
   }
 
@@ -89,7 +84,13 @@ const SelectComponent: FC<DocumentosOptionsProps> = ({
       </Select>
     )
   } else if (optionList.every((e) => typeof e === "object")) {
-    return <NestedSelect optionList={optionList} />
+    return (
+      <NestedSelect
+        optionList={optionList}
+        keyName={keyName}
+        globalDocs={globalDocs}
+      />
+    )
   }
 }
 
@@ -113,8 +114,20 @@ const DocumentOptions: React.FC<DocumentosOptionsProps> = ({
 }
 
 const ComponentThree = () => {
+  const docs = useContext(SecondCheckboxContext)
+  const textField = useContext(TextFieldContext)
   const handleClick = (_e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("marmota")
+    console.log("-")
+  }
+
+  const restartAction = () => {
+    textField?.setText("")
+
+    docs?.setDocs((prev) => {
+      return documentsContext
+    })
+
+    window.location.reload()
   }
 
   return (
@@ -123,10 +136,7 @@ const ComponentThree = () => {
         <Col span={18}>
           <Space direction="vertical" size="middle" className="flex w-full">
             <Content className="w-full flex justify-center">
-              <Typography.Title
-                className="title-bg"
-                level={4}
-              >
+              <Typography.Title className="title-bg" level={4}>
                 CADASTRO
               </Typography.Title>
             </Content>
@@ -149,6 +159,11 @@ const ComponentThree = () => {
           </Space>
         </Col>
       </Row>
+      <FloatButton
+        icon={<ReloadOutlined />}
+        style={{ border: "1px solid #adadad" }}
+        onClick={() => restartAction()}
+      />
     </div>
   )
 }

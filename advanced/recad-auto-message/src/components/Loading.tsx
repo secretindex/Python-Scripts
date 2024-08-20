@@ -12,7 +12,7 @@ const Loading: React.FC<LoadingProps> = ({ children, isLoading = true }) => {
   return (
     <>
       {isLoading ? (
-        <Content className="w-full h-full flex justify-center items-center">
+        <Content className="h-5/6 flex justify-center items-center">
           <Spin indicator={<LoadingOutlined spin />} size='large'/>
         </Content>
       ) : (

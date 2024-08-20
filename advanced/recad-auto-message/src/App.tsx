@@ -1,5 +1,5 @@
 import "./App.css"
-import Home from "./pages/TextGen"
+// import Home from "./pages/TextGen"
 import MenuAnt from "./components/Menu"
 import About from "./pages/About"
 import { SecondCheckboxContextProvider } from "./contexts/SecondCheckboxContext"
@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-full">
+    <main className="min-h-5/6">
       <Router>
         <CheckboxContextProvider>
           <SecondCheckboxContextProvider>

@@ -8,11 +8,12 @@ import {
 
 import FinalTextDocuments from "../utils/endTextObject"
 
-const documentsContext: FinalTextDocuments = {
+export const documentsContext: FinalTextDocuments = {
   foto: false,
   id: "id/n",
   residencia:"cr/n",
   estadoCivil: "cns/n",
+  pis: false,
   contracheque: false,
   posse: false,
   veracidade: false,
@@ -20,7 +21,7 @@ const documentsContext: FinalTextDocuments = {
   depId: 'dep/n'
 }
 
-interface SecondCheckboxContentType {
+export interface SecondCheckboxContentType {
   docs: FinalTextDocuments
   setDocs: Dispatch<SetStateAction<FinalTextDocuments>>
 }

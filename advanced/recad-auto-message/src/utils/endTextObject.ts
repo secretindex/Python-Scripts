@@ -20,6 +20,7 @@ interface FinalTextDocuments {
   residencia: ResidenceInvalid | ResidenceValid
   estadoCivil: CivilStatusInvalid | CivilStatusValid
   contracheque: boolean
+  pis: boolean
   posse: boolean
   veracidade: boolean
   comprovanteEstado: boolean

@@ -174,6 +174,11 @@ const activesDocument: ComplexDocs = {
       },
     ],
   },
+  pis: {
+    name: "PIS/PASEP ou NIT",
+    required: true,
+    present: false
+  },
   contracheque: {
     name: "Contracheque",
     required: true,
