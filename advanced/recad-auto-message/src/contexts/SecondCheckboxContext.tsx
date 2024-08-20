@@ -6,58 +6,23 @@ import {
   SetStateAction,
 } from "react"
 import { ComplexDocsEssentials } from "../utils/docsInterface"
+import FinalTextDocuments from "../utils/endTextObject"
 
-const documentsContext: ComplexDocsEssentials = {
-  foto: {
-    required: true,
-    present: false,
-  },
-  id: {
-    required: true,
-    present: false,
-    options: undefined,
-  },
-  residencia: {
-    required: true,
-    present: false,
-    options: undefined,
-  },
-  estadoCivil: {
-    required: true,
-    present: false,
-    options: undefined,
-  },
-  contracheque: {
-    required: true,
-    present: false,
-  },
-  posse: {
-    required: true,
-    present: false,
-  },
-  veracidade: {
-    required: true,
-    present: false,
-  },
-  comprovanteEstado: {
-    required: true,
-    present: false,
-  },
-  depId: {
-    required: true,
-    present: false,
-    options: undefined,
-  },
-  declaracaoRes: {
-    required: false,
-    present: false,
-    options: undefined,
-  },
+const documentsContext: FinalTextDocuments = {
+  foto: false,
+  id: "id/n",
+  residencia:"cr/n",
+  estadoCivil: "cns/n",
+  contracheque: false,
+  posse: false,
+  veracidade: false,
+  comprovanteEstado: false,
+  depId: 'dep/n'
 }
 
 interface SecondCheckboxContentType {
   docs: ComplexDocsEssentials
-  setDocs: Dispatch<SetStateAction<ComplexDocsEssentials>>
+  setDocs: Dispatch<SetStateAction<FinalTextDocuments>>
 }
 
 const SecondCheckboxContext = createContext<
@@ -71,7 +36,7 @@ interface ContextProps {
 const SecondCheckboxContextProvider: React.FC<ContextProps> = ({
   children,
 }) => {
-  const [docs, setDocs] = useState<ComplexDocsEssentials>(documentsContext)
+  const [docs, setDocs] = useState<FinalTextDocuments>(documentsContext)
 
   return (
     <SecondCheckboxContext.Provider value={{ docs, setDocs }}>

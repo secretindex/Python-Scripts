@@ -1,13 +1,29 @@
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Font not working */
 
 .app-container {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+}
+
+.title-bg {
+  position: relative;
+  font-size: 2rem !important;
+}
+
+.title-bg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  width: 100%;
+  height: 90%;
+  background: rgb(157, 221, 201);
+  background: linear-gradient(45deg, rgba(157, 221, 201, 0.418) 0%, rgba(93, 168, 133, 0.404) 100%);
+  transform: skewX(-20deg);
+  z-index: -10;
 }
 
 .checkbox-container {
@@ -23,7 +39,7 @@
 .text-result {
   height: 100%;
   width: 100%;
-  
+
 }
 
 .bottom-right {

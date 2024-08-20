@@ -1,5 +1,7 @@
-import { Box } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
+import { Layout, Spin } from 'antd';
+import { LoadingOutlined } from "@ant-design/icons"
+
+const { Content } = Layout
 
 interface LoadingProps {
   children: React.ReactNode
@@ -10,9 +12,9 @@ const Loading: React.FC<LoadingProps> = ({ children, isLoading = true }) => {
   return (
     <>
       {isLoading ? (
-        <Box className=" w-full h-full flex justify-center items-center">
-          <CircularProgress />
-        </Box >
+        <Content className="w-full h-full flex justify-center items-center">
+          <Spin indicator={<LoadingOutlined spin />} size='large'/>
+        </Content>
       ) : (
         <>
           {children}

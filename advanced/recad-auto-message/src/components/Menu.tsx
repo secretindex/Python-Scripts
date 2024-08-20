@@ -6,7 +6,7 @@ import {
   QuestionCircleOutlined,
 } from "@ant-design/icons"
 import { Link } from "react-router-dom"
-import AucadLogo from "../../assets/aucad horizontal.svg"
+import AucadLogo from "../assets/aucad horizontal.svg"
 
 const { Header } = Layout
 const { Item } = Menu

@@ -1,4 +1,4 @@
-import { ComplexDocs } from "../../../utils/docsInterface"
+import { ComplexDocs } from "../../utils/docsInterface"
 
 const activesDocument: ComplexDocs = {
   foto: {

@@ -1,4 +1,4 @@
-const retiredDocuments: ComplexDocs = {
+const retiredDocuments = {
   foto: {
     name: "Foto + ID",
     required: true,
@@ -129,3 +129,5 @@ const retiredDocuments: ComplexDocs = {
     optionList: ["Não requerido", "Requerido"],
   },
 }
+
+export default retiredDocuments

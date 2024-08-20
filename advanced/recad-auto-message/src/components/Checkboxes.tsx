@@ -1,14 +1,15 @@
-import { useContext, Dispatch, SetStateAction } from "react"
+import { useContext, Dispatch, SetStateAction, BaseSyntheticEvent  } from "react"
+
+// TODO: Remove every material ui component remaining
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
-import { Checkbox, Typography, Layout } from "antd"
+
+import { Button, Checkbox, Typography, Layout } from "antd"
 import type { CheckboxProps } from "antd"
-import { BaseSyntheticEvent } from "react"
-import { Box } from "@mui/material"
-import { Button } from "antd"
-import { TextFieldContext } from "../../contexts/TextfieldContext"
-import EndText from "../../utils/endTextGen"
-import { RequiredDocs } from "../../utils/docsInterface"
+
+import { TextFieldContext } from "../contexts/TextfieldContext"
+import EndText from "../utils/endTextGen"
+import { RequiredDocs } from "../utils/docsInterface"
 
 const { Content } = Layout
 
@@ -169,14 +170,14 @@ const CheckboxLabelsAnt: React.FC<LabelsProps> = ({ docs, setDocs }) => {
           }
           label="Declaração de Residência"
         />
-        <Box width={"40%"}>
+        <Content style={{ width: "40%" }}>
           <Button
             type="primary"
             onClick={(e: BaseSyntheticEvent) => submitCheckboxes(e)}
           >
             Generate Message
           </Button>
-        </Box>
+        </Content>
       </FormGroup>
     </div>
   )

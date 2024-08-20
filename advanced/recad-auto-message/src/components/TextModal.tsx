@@ -1,7 +1,7 @@
 import { useContext, useState, BaseSyntheticEvent } from "react"
 import { Button, Modal, message } from "antd"
 import { Input } from "antd"
-import { TextFieldContext } from "../../contexts/TextfieldContext"
+import { TextFieldContext } from "../contexts/TextfieldContext"
 import { CopyOutlined } from "@ant-design/icons"
 
 const { TextArea } = Input

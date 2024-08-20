@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-:root {
-  font-family: "Montserrat", sans-serif;
-}
-
 * {
   margin: 0;
   padding: 0;

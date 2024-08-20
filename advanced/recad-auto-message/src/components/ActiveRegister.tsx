@@ -1,5 +1,5 @@
 import activesDocument from "./objects/ActivesObj"
-import { SecondCheckboxContext } from "../../contexts/SecondCheckboxContext"
+import { SecondCheckboxContext } from "../contexts/SecondCheckboxContext"
 import { OptionInt } from "./SubComponents/NestedSelect"
 
 type OptList = Array<string | OptionInt | undefined>
@@ -47,8 +47,8 @@ const SelectComponent: FC<DocumentosOptionsProps> = ({
     const endObject = {
       required:
         keyName === "depId" &&
-        optionList &&
-        optionList[optionList.indexOf(value)] === "dep"
+          optionList &&
+          optionList[optionList.indexOf(value)] === "dep"
           ? true
           : activesDocument[keyName].required,
       present: value ? true : false,
@@ -122,17 +122,15 @@ const ComponentThree = () => {
       <Row className="p-2 h-60 justify-center">
         <Col span={18}>
           <Space direction="vertical" size="middle" className="flex w-full">
-            <Typography.Title
-              style={{
-                fontSize: "2rem",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-              level={4}
-            >
-              CADASTRO
-            </Typography.Title>
-            <Row gutter={[64, 16]}>
+            <Content className="w-full flex justify-center">
+              <Typography.Title
+                className="title-bg"
+                level={4}
+              >
+                CADASTRO
+              </Typography.Title>
+            </Content>
+            <Row gutter={[16, 8]}>
               {Object.keys(activesDocument).map((doc: string) => (
                 <DocumentOptions
                   key={doc}

@@ -1,7 +1,7 @@
 import { BaseSyntheticEvent, useContext } from "react"
 
 import { Typography, FloatButton, Layout } from "antd"
-import CheckboxLabelsAnt from "../components/alt-antui/ClickboxAnt"
+import CheckboxLabelsAnt from "../components/Checkboxes"
 import { TextFieldContext } from "../contexts/TextfieldContext"
 import { ReloadOutlined } from "@ant-design/icons"
 
@@ -12,7 +12,7 @@ import { CheckboxContext } from "../contexts/CheckboxContext"
 const { TextArea } = Input
 const { Content } = Layout
 
-function Home() {
+function TextGen() {
   const textField = useContext(TextFieldContext)
   const docs = useContext(CheckboxContext)
   const text = textField!.text
@@ -68,4 +68,4 @@ function Home() {
   )
 }
 
-export default Home
+export default TextGen

@@ -2,6 +2,8 @@ import React from 'react';
 import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
 
+// Pass the last value to end object in the component above
+
 export interface OptionInt {
   label: string;
   value: string | number | undefined;
