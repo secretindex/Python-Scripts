@@ -2,7 +2,10 @@ import text from "./text"
 import { DocsText, RequiredDocs } from "./docsInterface"
 import FinalTextDocuments from "./endTextObject"
 
-import { invalidDocumens, standardDocuments } from "./documents and models/pendingDocuments"
+import {
+  invalidDocumens,
+  standardDocuments,
+} from "./documents and models/pendingDocuments"
 
 const pendingTexts: DocsText = {
   foto: "Foto do rosto de frente segurando documento de identidade ao lado",
@@ -34,7 +37,8 @@ class EndText {
   constructor(fields: RequiredDocs | FinalTextDocuments) {
     this.fields = fields
     this.textFields = []
-    this.supportNumber = "\nNúmero do suporte: +55 (96) 3082-1277\nHorários: 08:00 às 17:00, segunda a sexta\n"
+    this.supportNumber =
+      "\nNúmero do suporte: +55 (96) 3082-1277\nHorários: 08:00 às 17:00, segunda a sexta\n"
   }
 
   addTextFields(): Array<string> | [] {
@@ -61,9 +65,7 @@ class EndText {
     return this.upper + "\n" + this.midText + this.bottom
   }
 
-  validateFields () {
-
-  }
+  validateFields() {}
 
   returnFinalText(): any {
     const campos = []
@@ -72,7 +74,7 @@ class EndText {
       if (typeof this.fields[i] !== "string") {
         campos.push(this.fields[i] === true ? "" : standardDocuments[i])
       } else {
-        support = this.fields[i] === 'dep/id/10' ? this.supportNumber : ""
+        support = this.fields[i] === "dep/id/10" ? this.supportNumber : ""
         campos.push(invalidDocumens[this.fields[i]])
       }
     }
@@ -81,12 +83,14 @@ class EndText {
       if (typeof campos[i] === "string" && campos[i].length === 0) continue
       if (typeof campos[i] === "undefined") continue
 
-      if (campos[i]) 
-
-      this.midText += `- ${campos[i]};\n`
+      if (campos[i]) this.midText += `- ${campos[i]};\n`
     }
 
-    return this.upper + "\n" + this.midText + support + this.bottom
+    if (this.midText) {
+      return this.upper + "\n" + this.midText + support + this.bottom
+    } else {
+      return "Cadastro completo 👍"
+    }
   }
 }
 
