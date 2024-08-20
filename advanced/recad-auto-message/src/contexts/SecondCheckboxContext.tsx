@@ -5,7 +5,7 @@ import {
   Dispatch,
   SetStateAction,
 } from "react"
-import { ComplexDocsEssentials } from "../utils/docsInterface"
+
 import FinalTextDocuments from "../utils/endTextObject"
 
 const documentsContext: FinalTextDocuments = {
@@ -21,7 +21,7 @@ const documentsContext: FinalTextDocuments = {
 }
 
 interface SecondCheckboxContentType {
-  docs: ComplexDocsEssentials
+  docs: FinalTextDocuments
   setDocs: Dispatch<SetStateAction<FinalTextDocuments>>
 }
 
